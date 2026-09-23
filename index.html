@@ -227,15 +227,6 @@
         ></iframe>
       </section>
 
-      <script>
-        // Marca que o envio já ocorreu, pra distinguir do primeiro carregamento vazio do iframe
-        document
-          .getElementById("formInscricao")
-          .addEventListener("submit", function () {
-            window.formSubmitted = true;
-          });
-      </script>
-
       <!-- ===== LOCALIZAÇÃO ===== -->
       <section id="localizacao">
         <p>
@@ -322,5 +313,15 @@
     <button id="botaoTopo" aria-label="Voltar ao topo" title="Voltar ao topo">
       ↑
     </button>
+
+    <script>
+      // Marca que o envio já ocorreu, pra distinguir do primeiro carregamento vazio do iframe
+      document
+        .getElementById("formInscricao")
+        .addEventListener("submit", function () {
+          window.formSubmitted = true;
+        });
+    </script>
+    <script src="JS/script.js"></script>
   </body>
 </html>
