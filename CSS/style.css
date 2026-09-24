@@ -1,4 +1,48 @@
-*{
-    padding: 0;
-    margin: 0;
+/* ==========================================
+   1. RESET MODERNO & CONFIGURAÇÕES BASE
+   ========================================== */
+
+/* Garante que padding e border não alterem o tamanho total dos elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Suaviza a rolagem para os links de navegação interna (#sobre, #programacao, etc.) */
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #f8f9fa;
+}
+
+/* Remove marcadores de listas e estilos padrão de links */
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ajusta imagens e iframes para serem responsivos por padrão */
+img, iframe {
+  max-width: 100%;
+  display: block;
+}
+
+/* Herança de fonte em botões e formulários */
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
