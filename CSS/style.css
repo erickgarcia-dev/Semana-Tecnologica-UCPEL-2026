@@ -382,3 +382,96 @@ main {
 #programacao p:last-child {
   margin-bottom: 0;
 }
+
+/* ==========================================
+   PARTE 6: PARTICIPANTES
+   ========================================== */
+
+#participantes {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#participantes h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#participantes h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--cor-primaria);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Container dos Cards em Grid */
+#participantes .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Card Individual */
+.card {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cor-destaque);
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.15);
+}
+
+/* Avatar / Imagem do Participante */
+.card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #0d1117;
+  border: 2px solid var(--cor-primaria);
+  margin-bottom: 1.2rem;
+  padding: 4px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover img {
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+/* Nome do Participante */
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cor-branco);
+  margin-bottom: 0.5rem;
+}
+
+/* Descrição / Especialidade */
+.card p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-mutado);
+  line-height: 1.5;
+}
