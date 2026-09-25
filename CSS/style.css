@@ -969,3 +969,22 @@ footer nav a:hover {
     height: 300px;
   }
 }
+
+/* ==========================================
+   ANIMAÇÃO DE ENTRADA (SCROLL REVEAL)
+   ========================================== */
+
+/* Estado Inicial: Escondido e um pouco abaixo */
+.revelar {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+/* Estado Final (quando entra na tela): Visível e no lugar original */
+.revelar.ativo {
+  opacity: 1;
+  transform: translateY(0);
+}
