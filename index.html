@@ -20,18 +20,26 @@
     <title>Semana Tecnológica 2026</title>
   </head>
   <body>
-    <!-- Cabeçalho da Página -->
+    <!-- ===== CABEÇALHO / NAVEGAÇÃO ===== -->
     <header>
-      <div class="logo">
-        <img
-          src="img/logo/logo-ucpel-negativo.png"
-          alt="Logo da UCPel branco"
-        />
-      </div>
+      <a href="#inicio">
+        <img src="img/logo/logo-ucpel-negativo.png" alt="Logo UCPel negativo" />
+      </a>
 
-      <!-- Menu de Navegação -->
-      <nav aria-label="Navegação principal">
-        <ul class="menu">
+      <!-- Botão Hambúrguer (As 3 barras) -->
+      <button
+        class="menu-hamburguer"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Navegação Principal -->
+      <nav class="nav-menu">
+        <ul>
           <li><a href="#inicio">Início</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#programacao">Programação</a></li>

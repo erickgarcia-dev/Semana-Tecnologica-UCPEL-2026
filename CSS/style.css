@@ -88,57 +88,69 @@ body {
 }
 
 /* ==========================================
-   HEADER E MENU DE NAVEGAÇÃO
+   HEADER COM EFEITO DE VIDRO & MENU HAMBÚRGUER
    ========================================== */
 
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 80px; /* Altura confortável para o cabeçalho */
-  z-index: 1000;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 5%;
   background-color: rgba(13, 17, 23, 0.85);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--cor-borda);
-}
-
-/* --- Logo --- */
-header .logo img {
-  height: 95px;
-  width: auto;
-  display: block;
-}
-
-/* --- Menu de Navegação --- */
-nav .menu {
+  padding: 1rem 2rem;
   display: flex;
-  gap: 2rem; /* Espaçamento entre os links */
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-nav .menu li a {
-  font-size: 1.05rem;
+header img {
+  max-height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Oculta o botão hambúrguer no Desktop */
+.menu-hamburguer {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+}
+
+.menu-hamburguer .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--cor-texto);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  color: var(--cor-texto);
+  text-decoration: none;
   font-weight: 500;
-  color: var(--cor-texto-mutado);
-  transition:
-    color 0.3s ease,
-    border-color 0.3s ease;
-  padding-bottom: 4px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
-nav .menu li a:hover {
+header nav a:hover {
   color: var(--cor-destaque);
-  border-bottom: 2px solid var(--cor-destaque);
-}
-
-main {
-  margin-top: 80px;
 }
 
 /* ==========================================
@@ -704,7 +716,7 @@ main {
 }
 
 #contato h2::after {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 3px;
@@ -736,7 +748,10 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 #contato > div:hover {
@@ -773,7 +788,10 @@ main {
   background-color: #25d366; /* Verde Oficial WhatsApp */
   border-radius: 8px;
   text-decoration: none;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
   width: fit-content;
 }
 
@@ -827,4 +845,127 @@ main {
 
 .redes-sociais li a:hover svg {
   transform: scale(1.1);
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+
+/* --- Rodapé (Footer) --- */
+footer {
+  width: 100%;
+  background-color: var(--cor-fundo-card);
+  border-top: 1px solid var(--cor-borda);
+  padding: 2.5rem 1rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+footer p {
+  color: var(--cor-texto-mutado);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+footer nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--cor-borda);
+}
+
+footer nav a {
+  color: var(--cor-texto-mutado);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.2rem 0.4rem;
+}
+
+footer nav a:hover {
+  color: var(--cor-destaque);
+}
+
+/* ==========================================
+   RESPONSIVIDADE: MEDIA QUERIES GLOBAIS
+   ========================================= */
+
+/* --- 1. TABLETS & IPADS (Até 992px) --- */
+@media (max-width: 992px) {
+  /* Ativa o Menu Hambúrguer */
+  .menu-hamburguer {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 1.5rem 0;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  header nav a {
+    font-size: 1.1rem;
+  }
+
+  /* Animação do X no ícone hambúrguer */
+  .menu-hamburguer.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-hamburguer.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-hamburguer.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* --- 2. SMARTPHONES & TELAS PEQUENAS (Até 768px) --- */
+@media (max-width: 768px) {
+  /* Ajuste de fontes e paddings das secções */
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  #sobre,
+  #inscricao,
+  #contato > div {
+    padding: 1.8rem 1.2rem;
+  }
+
+  #formInscricao fieldset {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  /* Grids em coluna única */
+  #participantes .cards,
+  #programacao ul,
+  #contato {
+    grid-template-columns: 1fr;
+  }
+
+  #localizacao .mapa {
+    height: 300px;
+  }
 }
