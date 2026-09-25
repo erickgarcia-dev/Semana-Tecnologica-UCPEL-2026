@@ -14,14 +14,24 @@
 /* Suaviza a rolagem para os links de navegação interna (#sobre, #programacao, etc.) */
 html {
   scroll-behavior: smooth;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
   line-height: 1.5;
   color: #333333;
   background-color: #f8f9fa;
 }
 
 /* Remove marcadores de listas e estilos padrão de links */
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -31,13 +41,17 @@ a {
 }
 
 /* Ajusta imagens e iframes para serem responsivos por padrão */
-img, iframe {
+img,
+iframe {
   max-width: 100%;
   display: block;
 }
 
 /* Herança de fonte em botões e formulários */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -45,4 +59,30 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+/* ==========================================
+   VARIAVEIS DE CORES & TEMA DARK
+   ========================================== */
+:root {
+  /* Cores Principais */
+  --cor-fundo: #0d1117; /* Fundo principal bem escuro (estilo GitHub Dark) */
+  --cor-fundo-card: #161b22; /* Fundo de cards, seccoes secundarias e menus */
+  --cor-borda: #30363d; /* Bordas sutis para separar elementos */
+
+  /* Cores de Destaque / Identidade */
+  --cor-primaria: #0066cc; /* Azul UCPel / Tecnologia */
+  --cor-primaria-hover: #0052a3; /* Azul mais escuro ao passar o mouse */
+  --cor-destaque: #00d2ff; /* Cyan/Azul vibrante para detalhes e efeitos hover */
+
+  /* Tipografia / Textos */
+  --cor-texto: #e6edf3; /* Texto principal (quase branco, para nao cansar os olhos) */
+  --cor-texto-mutado: #8b949e; /* Texto secundario / legendas em cinzento */
+  --cor-branco: #ffffff;
+}
+
+/* Fundo geral e cor do texto da pagina */
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
 }
