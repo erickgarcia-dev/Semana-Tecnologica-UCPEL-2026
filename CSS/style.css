@@ -617,3 +617,68 @@ main {
   color: var(--cor-destaque);
   margin-top: 0.5rem;
 }
+
+/* ==========================================
+   LOCALIZAÇÃO E MAPA
+   ========================================== */
+
+#localizacao {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#localizacao h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#localizacao h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--cor-primaria);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+#localizacao > p {
+  color: var(--cor-texto-mutado);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Container Responsivo do Mapa --- */
+#localizacao .mapa {
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#localizacao .mapa:hover {
+  border-color: var(--cor-destaque);
+  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+}
+
+/* Estilização do Iframe */
+#localizacao .mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: opacity(0.9) contrast(1.02);
+}
