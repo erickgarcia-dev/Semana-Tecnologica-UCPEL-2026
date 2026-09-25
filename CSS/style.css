@@ -475,3 +475,145 @@ main {
   color: var(--cor-texto-mutado);
   line-height: 1.5;
 }
+
+/* ==========================================
+   FORMULÁRIO DE INSCRIÇÃO
+   ========================================== */
+
+#inscricao {
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+#inscricao h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+#inscricao h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--cor-primaria);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+#inscricao > p {
+  text-align: center;
+  color: var(--cor-texto-mutado);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* --- Estrutura do Form --- */
+#formInscricao {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+#formInscricao label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+  margin-bottom: -0.5rem; /* Aproxima o label do input */
+}
+
+/* Estilização dos Inputs */
+#formInscricao input[type="text"],
+#formInscricao input[type="email"],
+#formInscricao input[type="tel"] {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  background-color: #0d1117;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Efeito ao focar no campo de texto */
+#formInscricao input[type="text"]:focus,
+#formInscricao input[type="email"]:focus,
+#formInscricao input[type="tel"]:focus {
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+/* --- Fieldset e Radio Buttons --- */
+#formInscricao fieldset {
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+#formInscricao legend {
+  padding: 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--cor-texto-mutado);
+}
+
+#formInscricao fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+#formInscricao input[type="radio"] {
+  accent-color: var(--cor-destaque); /* Estiliza a cor do radio button */
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* --- Botão de Submissão --- */
+#formInscricao button[type="submit"] {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--cor-primaria);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+#formInscricao button[type="submit"]:hover {
+  background-color: var(--cor-destaque);
+  color: #0d1117;
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Mensagem de Feedback */
+#formFeedback {
+  text-align: center;
+  font-weight: 600;
+  color: var(--cor-destaque);
+  margin-top: 0.5rem;
+}
