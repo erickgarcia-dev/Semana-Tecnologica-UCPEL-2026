@@ -59,3 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ----------------------------------------
+  // VALIDAÇÃO DO FORMULÁRIO DE INSCRIÇÃO
+  // ----------------------------------------
+  const formInscricao = document.querySelector('#formInscricao') || document.querySelector('form');
+
+  if (formInscricao) {
+    formInscricao.addEventListener('submit', (evento) => {
+      // Impede o recarregamento padrao da pagina
+      evento.preventDefault();
+
+      const campoNome = formInscricao.querySelector('input[type="text"]');
+      const campoEmail = formInscricao.querySelector('input[type="email"]');
+
+      // 1. Validação do Nome
+      if (campoNome && campoNome.value.trim() === '') {
+        alert('Por favor, preencha o seu nome completo.');
+        campoNome.focus();
+        return;
+      }
+
+      // 2. Validação do E-mail
+      if (campoEmail && (campoEmail.value.trim() === '' || !campoEmail.value.includes('@'))) {
+        alert('Por favor, insira um endereço de e-mail válido.');
+        campoEmail.focus();
+        return;
+      }
+
+      // 3. Feedback de Sucesso
+      alert('Inscrição realizada com sucesso! Enviamos os detalhes para o seu e-mail.');
+      formInscricao.reset(); // Limpa o formulário
+    });
+  }
