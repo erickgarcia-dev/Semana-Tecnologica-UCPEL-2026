@@ -111,7 +111,7 @@ header {
 
 /* --- Logo --- */
 header .logo img {
-  height: 95px; 
+  height: 95px;
   width: auto;
   display: block;
 }
@@ -123,7 +123,7 @@ nav .menu {
 }
 
 nav .menu li a {
-  font-size: 1.05rem; 
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--cor-texto-mutado);
   transition:
@@ -139,4 +139,127 @@ nav .menu li a:hover {
 
 main {
   margin-top: 80px;
+}
+
+/* ==========================================
+   SECTION INÍCIO (SLIDESHOW & HERO)
+   ========================================== */
+
+#inicio {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px); /* Ocupa quase toda a altura da tela */
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+/* --- Container do Slideshow --- */
+.slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Camada escura sobre as imagens para destacar o texto */
+.slideshow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 17, 23, 0.7) 0%,
+    rgba(13, 17, 23, 0.85) 100%
+  );
+  z-index: 2;
+}
+
+/* Imagens do Slideshow com Transição Automática */
+.slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: carrossel 15s infinite;
+}
+
+/* Alternância entre as 3 imagens */
+.slideshow img:nth-child(1) {
+  animation-delay: 0s;
+}
+.slideshow img:nth-child(2) {
+  animation-delay: 5s;
+}
+.slideshow img:nth-child(3) {
+  animation-delay: 10s;
+}
+
+@keyframes carrossel {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  6% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  39% {
+    opacity: 0;
+    transform: scale(1.05);
+  } /* Suave efeito de zoom */
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- Título do Evento --- */
+#inicio h1 {
+  position: relative;
+  z-index: 3;
+  font-size: clamp(2.2rem, 5vw, 3.8rem); /* Fonte responsiva */
+  font-weight: 800;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Botão "Inscreva-se" --- */
+#inicio .botao {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--cor-primaria);
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Efeito Hover do Botão */
+#inicio .botao:hover {
+  background-color: var(--cor-destaque);
+  color: #0d1117; /* Texto escuro ao passar o rato no botão vibrante */
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.8);
+  transform: translateY(-3px);
 }
