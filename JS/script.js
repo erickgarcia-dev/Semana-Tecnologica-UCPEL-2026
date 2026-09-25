@@ -28,3 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ----------------------------------------
+  // ROLAGEM SUAVE (SMOOTH SCROLL)
+  // ----------------------------------------
+  const linksInternos = document.querySelectorAll('a[href^="#"]');
+
+  linksInternos.forEach(link => {
+    link.addEventListener('click', function (evento) {
+      const idAlvo = this.getAttribute('href');
+
+      // Se for apenas "#", ignora
+      if (idAlvo === '#') return;
+
+      const elementoAlvo = document.querySelector(idAlvo);
+
+      if (elementoAlvo) {
+        evento.preventDefault(); // Impede o salto brusco padrão do navegador
+
+        // Altura do header fixo para descontar e não cobrir o título
+        const alturaHeader = 80;
+        const posicaoElemento = elementoAlvo.getBoundingClientRect().top;
+        const posicaoComDesconto = posicaoElemento + window.pageYOffset - alturaHeader;
+
+        // Executa a rolagem suave
+        window.scrollTo({
+          top: posicaoComDesconto,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
