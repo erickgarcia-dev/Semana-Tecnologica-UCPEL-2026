@@ -92,3 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
       formInscricao.reset(); // Limpa o formulário
     });
   }
+
+  // ----------------------------------------
+  // ANIMAÇÃO AO ROLAR (SCROLL REVEAL)
+  // ----------------------------------------
+  
+  // 1. Seleciona os elementos que queremos animar (cartões, formulário, etc.)
+  const elementosParaAnimar = document.querySelectorAll('#sobre, #programacao li, #participantes .card, #inscricao, #contato');
+
+  // Adiciona a classe inicial (.revelar) a todos eles
+  elementosParaAnimar.forEach(el => el.classList.add('revelar'));
+
+  // 2. Cria o observador que deteta quando o elemento entra na tela
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add('ativo'); // Ativa a animação
+        observador.unobserve(entrada.target); // Para de observar após animar uma vez
+      }
+    });
+  }, {
+    threshold: 0.15 // Dispara quando 15% do elemento estiver visível
+  });
+
+  // 3. Aplica o observador a cada elemento
+  elementosParaAnimar.forEach(el => observador.observe(el));
