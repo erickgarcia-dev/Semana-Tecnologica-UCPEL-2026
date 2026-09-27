@@ -196,11 +196,7 @@
         <form
           action="https://docs.google.com/forms/d/e/1FAIpQLScsBYwoHDbXG5HpNbava4EDNy3ocUwP04pl-Q7lmfp4IQ51QQ/formResponse"
           method="post"
-          target="hidden_iframe"
           id="formInscricao"
-          onsubmit="
-            document.getElementById('formFeedback').textContent = 'Enviando...'
-          "
         >
           <label for="nome">Nome completo</label>
           <input type="text" id="nome" name="entry.351108243" required />
@@ -239,15 +235,21 @@
         </form>
 
         <!-- iframe invisível: recebe a resposta do Google sem sair da sua página -->
+        <!-- iframe invisível: recebe a resposta do Google sem sair da sua página -->
         <iframe
           name="hidden_iframe"
           id="hidden_iframe"
           style="display: none"
           onload="
             if (window.formSubmitted) {
-              document.getElementById('formFeedback').textContent =
-                'Inscrição enviada com sucesso!';
+              alert('Inscrição enviada com sucesso! Obrigado por participar.');
+              var feedback = document.getElementById('formFeedback');
+              if (feedback) {
+                feedback.textContent = 'Inscrição enviada com sucesso!';
+                feedback.style.color = '#4CAF50';
+              }
               document.getElementById('formInscricao').reset();
+              window.formSubmitted = false;
             }
           "
         ></iframe>
